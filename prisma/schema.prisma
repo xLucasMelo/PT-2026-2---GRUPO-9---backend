@@ -22,3 +22,9 @@ model User {
   createdAt  DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
 }
+
+model Categories {
+  id Int @id @default(autoincrement())
+  name String 
+  parentCategoryId? Int @map("parent_category_id")
+}
