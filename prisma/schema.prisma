@@ -41,3 +41,15 @@ model Stores {
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
 }
+
+model Product {
+  id Int @id @default(autoincrement())
+  storeId Int @map("store_id")
+  categoryId Int @map("category_id")
+  name String
+  description String?
+  price Decimal @db.Decimal(8,2)
+  stock Int
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updateAt @map("update_at")
+}
