@@ -21,6 +21,12 @@ model User {
   profilePictureUrl? String @map("profile_picture_url")
   createdAt  DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
+
+  stores Store[]
+  passwordResets PasswordReset[]
+  storeRatings StoreRating[]
+  productRatings productRating[]
+  ratingComments ratingComment[]
 }
 
 model Categories {
@@ -29,7 +35,7 @@ model Categories {
   parentCategoryId? Int @map("parent_category_id")
 }
 
-model Stores {
+model Store {
   id Int @id @default(autoincrement())
   userId Int @map("user_id")
   categoryId Int @map("category_id")
