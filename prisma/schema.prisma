@@ -28,3 +28,16 @@ model Categories {
   name String 
   parentCategoryId? Int @map("parent_category_id")
 }
+
+model Stores {
+  id Int @id @default(autoincrement())
+  userId Int @map("user_id")
+  categoryId Int @map("category_id")
+  name String
+  description String
+  logoUrl String? @map("logo_url")
+  bannerUrl String? @map("banner_url")
+  stickerUrl String? @map("sticker_url")
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updateAt @map("update_at")
+}
