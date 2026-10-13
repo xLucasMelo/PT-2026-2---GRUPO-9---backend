@@ -20,7 +20,7 @@ model User {
   passwordHash String @map("password_hash")
   profilePictureUrl String? @map("profile_picture_url")
   createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updateAt @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   stores Store[]
   passwordResets PasswordReset[]
@@ -54,7 +54,7 @@ model Store {
   bannerUrl String? @map("banner_url")
   stickerUrl String? @map("sticker_url")
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updateAt @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   user User @relation(fields: [userId], references: [id])
   category Category @relation(fields:[categoryId], references: [id])
@@ -73,7 +73,7 @@ model Product {
   price Decimal @db.Decimal(8,2)
   stock Int @default(0)
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updateAt @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   store Store @relation(fields: [storeId], references:[id])
   category Category @relation(fields: [categoryId], references: [id])
@@ -93,3 +93,17 @@ model ProductImage {
 
   @@map("product_images")
 }
+
+model PasswordReset {
+  id Int @id @default(autoincrement())
+  userId Int @map(user_id)
+  code String 
+  expiresAt DateTime @map(expires_at)
+  used Boolean @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("password_resets")
+}
+
