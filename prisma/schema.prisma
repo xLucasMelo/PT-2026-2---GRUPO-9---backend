@@ -51,6 +51,11 @@ model Store {
   stickerUrl String? @map("sticker_url")
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
+
+  user User @relation(fields: [userId], references: [id])
+  category Category @relation(fields:[categoryId], references: [id])
+  products Product[]
+  ratings StoreRating[]
 }
 
 model Product {
