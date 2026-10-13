@@ -107,3 +107,34 @@ model PasswordReset {
   @@map("password_resets")
 }
 
+model StoreRating {
+  id Int @id @default(autoincrement())
+  userId Int @map(user_id)
+  storeId Int @map(store_id)
+  rating Int
+  comment String 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")   
+   
+  @@map(store_rating")
+}
+
+model ProductRating {
+  id Int @id @default(autoincrement())
+  userId Int @map("user_id")
+  storeId Int @map("store_id")
+  rating Int
+  comment String? 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at") 
+}
+
+model RatingComment {
+  id Int @id default(autoincrement())
+  userId Int @map("user_id")
+  storeRatingId Int @map("store_rating_id")
+  productRatingId Int @map("product_rating_id")
+  content String 
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at") 
+}
