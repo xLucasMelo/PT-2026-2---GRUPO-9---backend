@@ -29,10 +29,15 @@ model User {
   ratingComments ratingComment[]
 }
 
-model Categories {
+model Category {
   id Int @id @default(autoincrement())
   name String 
-  parentCategoryId? Int @map("parent_category_id")
+  parentCategoryId Int? @map("parent_category_id")
+
+  parentCategory Category? @relation("CategoryHierarchy", fields: [parentCategoryId], references: [id])
+  subCategories Category[] @relation("CategoryHierarchy")
+  stores Store[]
+  products Product[]
 }
 
 model Store {
