@@ -45,7 +45,7 @@ model Store {
   userId Int @map("user_id")
   categoryId Int @map("category_id")
   name String
-  description String
+  description String?
   logoUrl String? @map("logo_url")
   bannerUrl String? @map("banner_url")
   stickerUrl String? @map("sticker_url")
@@ -65,9 +65,14 @@ model Product {
   name String
   description String?
   price Decimal @db.Decimal(8,2)
-  stock Int
+  stock Int @default(0)
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
+
+  store Store @relation(fields: [storeId], references:[id])
+  category Category @relation(fields: [categoryId], references: [id])
+  images ProductImage[]
+  ratings ProductRating[]
 }
 
 model ProductImage {
