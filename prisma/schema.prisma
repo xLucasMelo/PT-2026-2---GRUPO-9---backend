@@ -11,3 +11,14 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  name String
+  email String @unique
+  passwordHash String @map("password_hash")
+  profilePictureUrl? String @map("profile_picture_url")
+  createdAt  DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updateAt @map("update_at")
+}
