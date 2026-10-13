@@ -27,6 +27,8 @@ model User {
   storeRatings StoreRating[]
   productRatings productRating[]
   ratingComments ratingComment[]
+
+  @@map("users")
 }
 
 model Category {
@@ -38,6 +40,8 @@ model Category {
   subCategories Category[] @relation("CategoryHierarchy")
   stores Store[]
   products Product[]
+  
+  @@map("categories")
 }
 
 model Store {
@@ -56,6 +60,8 @@ model Store {
   category Category @relation(fields:[categoryId], references: [id])
   products Product[]
   ratings StoreRating[]
+
+  @@map("stores")
 }
 
 model Product {
@@ -73,6 +79,8 @@ model Product {
   category Category @relation(fields: [categoryId], references: [id])
   images ProductImage[]
   ratings ProductRating[]
+
+  @@map(""products)
 }
 
 model ProductImage {
@@ -82,4 +90,6 @@ model ProductImage {
   ordedr Int @default(0)
 
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map(""product_images)
 }
