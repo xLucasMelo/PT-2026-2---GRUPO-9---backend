@@ -53,3 +53,10 @@ model Product {
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updateAt @map("update_at")
 }
+
+model ProductImage {
+  id Int @id @default(@autoincrement())
+  productId Int @map("product_id")
+  imageUrl String @map("imageUrl")
+  ordedr Int @default(0)
+}
