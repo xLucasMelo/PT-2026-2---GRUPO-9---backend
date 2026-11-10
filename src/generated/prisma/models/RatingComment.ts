@@ -206,8 +206,8 @@ export type RatingCommentGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 export type RatingCommentGroupByOutputType = {
   id: number
   userId: number
-  storeRatingId: number
-  productRatingId: number
+  storeRatingId: number | null
+  productRatingId: number | null
   content: string
   createdAt: Date
   updatedAt: Date
@@ -239,8 +239,8 @@ export type RatingCommentWhereInput = {
   NOT?: Prisma.RatingCommentWhereInput | Prisma.RatingCommentWhereInput[]
   id?: Prisma.IntFilter<"RatingComment"> | number
   userId?: Prisma.IntFilter<"RatingComment"> | number
-  storeRatingId?: Prisma.IntFilter<"RatingComment"> | number
-  productRatingId?: Prisma.IntFilter<"RatingComment"> | number
+  storeRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
+  productRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
   content?: Prisma.StringFilter<"RatingComment"> | string
   createdAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
@@ -252,8 +252,8 @@ export type RatingCommentWhereInput = {
 export type RatingCommentOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  storeRatingId?: Prisma.SortOrder
-  productRatingId?: Prisma.SortOrder
+  storeRatingId?: Prisma.SortOrderInput | Prisma.SortOrder
+  productRatingId?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -268,8 +268,8 @@ export type RatingCommentWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.RatingCommentWhereInput[]
   NOT?: Prisma.RatingCommentWhereInput | Prisma.RatingCommentWhereInput[]
   userId?: Prisma.IntFilter<"RatingComment"> | number
-  storeRatingId?: Prisma.IntFilter<"RatingComment"> | number
-  productRatingId?: Prisma.IntFilter<"RatingComment"> | number
+  storeRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
+  productRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
   content?: Prisma.StringFilter<"RatingComment"> | string
   createdAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
@@ -281,8 +281,8 @@ export type RatingCommentWhereUniqueInput = Prisma.AtLeast<{
 export type RatingCommentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  storeRatingId?: Prisma.SortOrder
-  productRatingId?: Prisma.SortOrder
+  storeRatingId?: Prisma.SortOrderInput | Prisma.SortOrder
+  productRatingId?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -299,8 +299,8 @@ export type RatingCommentScalarWhereWithAggregatesInput = {
   NOT?: Prisma.RatingCommentScalarWhereWithAggregatesInput | Prisma.RatingCommentScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"RatingComment"> | number
   userId?: Prisma.IntWithAggregatesFilter<"RatingComment"> | number
-  storeRatingId?: Prisma.IntWithAggregatesFilter<"RatingComment"> | number
-  productRatingId?: Prisma.IntWithAggregatesFilter<"RatingComment"> | number
+  storeRatingId?: Prisma.IntNullableWithAggregatesFilter<"RatingComment"> | number | null
+  productRatingId?: Prisma.IntNullableWithAggregatesFilter<"RatingComment"> | number | null
   content?: Prisma.StringWithAggregatesFilter<"RatingComment"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"RatingComment"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"RatingComment"> | Date | string
@@ -318,8 +318,8 @@ export type RatingCommentCreateInput = {
 export type RatingCommentUncheckedCreateInput = {
   id?: number
   userId: number
-  storeRatingId: number
-  productRatingId: number
+  storeRatingId?: number | null
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -337,8 +337,8 @@ export type RatingCommentUpdateInput = {
 export type RatingCommentUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -347,8 +347,8 @@ export type RatingCommentUncheckedUpdateInput = {
 export type RatingCommentCreateManyInput = {
   id?: number
   userId: number
-  storeRatingId: number
-  productRatingId: number
+  storeRatingId?: number | null
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -363,8 +363,8 @@ export type RatingCommentUpdateManyMutationInput = {
 export type RatingCommentUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -560,8 +560,8 @@ export type RatingCommentCreateWithoutUserInput = {
 
 export type RatingCommentUncheckedCreateWithoutUserInput = {
   id?: number
-  storeRatingId: number
-  productRatingId: number
+  storeRatingId?: number | null
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -599,8 +599,8 @@ export type RatingCommentScalarWhereInput = {
   NOT?: Prisma.RatingCommentScalarWhereInput | Prisma.RatingCommentScalarWhereInput[]
   id?: Prisma.IntFilter<"RatingComment"> | number
   userId?: Prisma.IntFilter<"RatingComment"> | number
-  storeRatingId?: Prisma.IntFilter<"RatingComment"> | number
-  productRatingId?: Prisma.IntFilter<"RatingComment"> | number
+  storeRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
+  productRatingId?: Prisma.IntNullableFilter<"RatingComment"> | number | null
   content?: Prisma.StringFilter<"RatingComment"> | string
   createdAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RatingComment"> | Date | string
@@ -617,7 +617,7 @@ export type RatingCommentCreateWithoutStoreRatingInput = {
 export type RatingCommentUncheckedCreateWithoutStoreRatingInput = {
   id?: number
   userId: number
-  productRatingId: number
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -660,7 +660,7 @@ export type RatingCommentCreateWithoutProductRatingInput = {
 export type RatingCommentUncheckedCreateWithoutProductRatingInput = {
   id?: number
   userId: number
-  storeRatingId: number
+  storeRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -694,8 +694,8 @@ export type RatingCommentUpdateManyWithWhereWithoutProductRatingInput = {
 
 export type RatingCommentCreateManyUserInput = {
   id?: number
-  storeRatingId: number
-  productRatingId: number
+  storeRatingId?: number | null
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -711,8 +711,8 @@ export type RatingCommentUpdateWithoutUserInput = {
 
 export type RatingCommentUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -720,8 +720,8 @@ export type RatingCommentUncheckedUpdateWithoutUserInput = {
 
 export type RatingCommentUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -730,7 +730,7 @@ export type RatingCommentUncheckedUpdateManyWithoutUserInput = {
 export type RatingCommentCreateManyStoreRatingInput = {
   id?: number
   userId: number
-  productRatingId: number
+  productRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -747,7 +747,7 @@ export type RatingCommentUpdateWithoutStoreRatingInput = {
 export type RatingCommentUncheckedUpdateWithoutStoreRatingInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -756,7 +756,7 @@ export type RatingCommentUncheckedUpdateWithoutStoreRatingInput = {
 export type RatingCommentUncheckedUpdateManyWithoutStoreRatingInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  productRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  productRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -765,7 +765,7 @@ export type RatingCommentUncheckedUpdateManyWithoutStoreRatingInput = {
 export type RatingCommentCreateManyProductRatingInput = {
   id?: number
   userId: number
-  storeRatingId: number
+  storeRatingId?: number | null
   content: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -782,7 +782,7 @@ export type RatingCommentUpdateWithoutProductRatingInput = {
 export type RatingCommentUncheckedUpdateWithoutProductRatingInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -791,7 +791,7 @@ export type RatingCommentUncheckedUpdateWithoutProductRatingInput = {
 export type RatingCommentUncheckedUpdateManyWithoutProductRatingInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  storeRatingId?: Prisma.IntFieldUpdateOperationsInput | number
+  storeRatingId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -875,8 +875,8 @@ export type $RatingCommentPayload<ExtArgs extends runtime.Types.Extensions.Inter
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     userId: number
-    storeRatingId: number
-    productRatingId: number
+    storeRatingId: number | null
+    productRatingId: number | null
     content: string
     createdAt: Date
     updatedAt: Date
