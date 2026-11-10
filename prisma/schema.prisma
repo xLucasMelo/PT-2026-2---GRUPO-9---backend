@@ -119,6 +119,7 @@ model StoreRating {
   store    Store           @relation(fields: [storeId], references: [id], onDelete: Cascade)
   comments RatingComment[]
 
+  @@unique([userId, storeId])
   @@map("store_ratings")
 }
 
@@ -141,8 +142,8 @@ model ProductRating {
 model RatingComment {
   id              Int      @id @default(autoincrement())
   userId          Int      @map("user_id")
-  storeRatingId   Int      @map("store_rating_id")
-  productRatingId Int      @map("product_rating_id")
+  storeRatingId   Int?     @map("store_rating_id")
+  productRatingId Int?     @map("product_rating_id")
   content         String
   createdAt       DateTime @default(now()) @map("created_at")
   updatedAt       DateTime @updatedAt @map("updated_at")

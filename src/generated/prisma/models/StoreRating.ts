@@ -255,6 +255,7 @@ export type StoreRatingOrderByWithRelationInput = {
 
 export type StoreRatingWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  userId_storeId?: Prisma.StoreRatingUserIdStoreIdCompoundUniqueInput
   AND?: Prisma.StoreRatingWhereInput | Prisma.StoreRatingWhereInput[]
   OR?: Prisma.StoreRatingWhereInput[]
   NOT?: Prisma.StoreRatingWhereInput | Prisma.StoreRatingWhereInput[]
@@ -266,7 +267,7 @@ export type StoreRatingWhereUniqueInput = Prisma.AtLeast<{
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
   comments?: Prisma.RatingCommentListRelationFilter
-}, "id">
+}, "id" | "userId_storeId">
 
 export type StoreRatingOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -364,6 +365,11 @@ export type StoreRatingListRelationFilter = {
 
 export type StoreRatingOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type StoreRatingUserIdStoreIdCompoundUniqueInput = {
+  userId: number
+  storeId: number
 }
 
 export type StoreRatingCountOrderByAggregateInput = {
